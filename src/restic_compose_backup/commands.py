@@ -26,7 +26,7 @@ def ping_mysql(container_id, host, port, username, password) -> int:
 def ping_mariadb(container_id, host, port, username, password) -> int:
     """Check if the mariadb is up and can be reached"""
     return docker_exec(container_id, [
-        'mysqladmin',
+        'mariadb-admin',
         'ping',
         '--user',
         username,
