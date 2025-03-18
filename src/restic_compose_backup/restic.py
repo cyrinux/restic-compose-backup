@@ -86,7 +86,7 @@ def snapshots(repository: str, last=True) -> Tuple[str, str]:
     """Returns the stdout and stderr info"""
     args = ["snapshots"]
     if last:
-        args.append('--last')
+        args.append('--latest=1')
     return commands.run_capture_std(restic(repository, args))
 
 
@@ -97,7 +97,7 @@ def is_initialized(repository: str) -> bool:
     and other errors, but this method is reccomended by the restic
     community.
     """
-    return commands.run(restic(repository, ["snapshots", '--last'])) == 0
+    return commands.run(restic(repository, ["snapshots", '--latest=1'])) == 0
 
 
 def forget(repository: str, daily: str, weekly: str, monthly: str, yearly: str):
