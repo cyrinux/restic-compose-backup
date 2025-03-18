@@ -1,4 +1,4 @@
-FROM restic/restic:0.9.6
+FROM restic/restic:0.17.3
 
 RUN apk update && apk add python3 \ 
     dcron \
